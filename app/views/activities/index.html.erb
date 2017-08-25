@@ -1,0 +1,42 @@
+<p id="notice"><%= flash[:notice]%></p>
+
+
+<div class = "container main-wrap">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+      <div class = "col-md-7 left-wrap">
+      <h2>アクティビティ一覧</h2>
+        <% @activities.first(10).each do |activity| %>
+        <div class = "article">
+          <div class= "article_img">
+          <%= link_to image_tag(activity.picture), activity if activity.picture? %>
+          </div>
+          <div class="article_text">
+          <h3><%= link_to activity.title, activity,:class=>"link" %></h3>
+            <p><%== activity.content.truncate(50) %></p>
+          </div>
+        </div>
+    <% end %>
+    <%= paginate @activities %>
+      </div>
+    
+     <div class="col-md-3">
+      <div class="submenu panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">新着記事</h3>
+        </div>
+        <% @activities_side.first(5).each do |activity| %>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li><%= link_to(activity.title, "/activities/#{activity.id}") %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+      <div class="btn btn-default"><%= link_to "新規投稿", new_activity_path %></div>
+    </div><!--col-->
+  </div><!--row-->
+  </div><!--container-->
+
+  </div><!--row -->
+</div><!--container-->

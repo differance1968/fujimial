@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class = "col-md-1"></div>
+    <div class="col-md-10">
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -49,16 +50,17 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-1"></div>
+      <div class="col-md-7">
       
       <div class="row">  
         <div class="col-sm-6">
           <div class="thumbnail">
-          <a href="">
+          <a href="/activities">
             <img src="/assets/photo01.jpg" alt="" >
-              <div class="caption">
-                <h3>想起練習とは？</h3>
-                <p>想起練習の恐るべき効果とは？</p>
+              <div class="caption link">
+                <h3>活動データベース</h3>
+                <p>明日から使える活動例</p>
               </div>
           </a>
           </div>
@@ -68,9 +70,9 @@
           <div class="thumbnail">
           <a href="">
             <img src="/assets/point02.jpg" alt="" >
-              <div class="caption">
-                <h3>想起練習とは？</h3>
-                <p>想起練習の恐るべき効果とは？</p>
+              <div class="caption link">
+                <h3>実践報告</h3>
+                <p>富士見の先生方による実践報告</p>
               </div>
           </a>
           </div>
@@ -82,9 +84,9 @@
           <div class="thumbnail">
           <a href="">
             <img src="/assets/bg-about.jpg" alt="" >
-              <div class="caption">
-                <h3>想起練習とは？</h3>
-                <p>想起練習の恐るべき効果とは？</p>
+              <div class="caption link">
+                <h3>理論・論文</h3>
+                <p>学習理論の最新成果を紹介</p>
               </div>
           </a>
           </div>
@@ -94,9 +96,9 @@
           <div class="thumbnail">
           <a href="">
             <img src="/assets/bg-about.jpg" alt="" >
-              <div class="caption">
-                <h3>想起練習とは？</h3>
-                <p>想起練習の恐るべき効果とは？</p>
+              <div class="caption link">
+                <h3>資料</h3>
+                <p>そのまま使えるプリント・ワークシート</p>
               </div>
           </a>
           </div>
@@ -104,32 +106,22 @@
       </div><!--row-->
    </div>
   
-    <div class="col-md-4">
+    <div class="col-md-3">
       <div class="submenu panel panel-default">
         <div class="panel-heading">
           <h3 class="panel-title">新着記事</h3>
         </div>
+        <% @activities.first(5).each do |activity| %>
         <div class="panel-body">
           <ul class="nav nav-pills nav-stacked">
-            <li><a href="">想起練習の効果</a></li>
-            <li><a href="">想起練習の効果</a></li>
-            <li><a href="">想起練習の効果</a></li>
-            <li><a href="">想起練習の効果</a></li>
+            <li><%= link_to(activity.title, "/activities/#{activity.id}") %></li>
           </ul>
         </div>
+        <% end %>
       </div>
     </div><!--col-->
   </div><!--row-->
   </div><!--container-->
   
-  <div class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <p class="well">Copyright &copy; FUJIMI Junior & Senior High School</p>
-        </div>
-      </div>
-    </div>
-  </div>
   
   
