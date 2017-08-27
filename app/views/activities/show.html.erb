@@ -4,21 +4,21 @@
     <div class="col-md-7 left-wrap">
 
       <p id="notice"><%= notice %></p>
-
+     <div class="show-article">
       <h2>
         <%= @activity.title %>
       </h2>
       
-      <div class="article">
-      <p>
+      <div class="show-image">
         <%= image_tag @activity.picture.url if @activity.picture? %>
-        <%== @activity.content %>
-      </p>
-  
-        <%= button_to '編集', edit_activity_path(@activity),:class=>"btn btn-default show-btn" %> 
-        <%= button_to '削除', @activity, method: :delete, data: { confirm: '本当に消しますか？' }, :class=>"btn btn-default show-btn" %>
       </div>
-      
+      <div class="show-content">
+          <%== @activity.content %>
+      </div>
+      </div>
+        <%= button_to '編集', edit_activity_path(@activity), method: :get, :class=>"btn btn-default show-btn" %> 
+        <%= button_to '削除', @activity, method: :delete, data: { confirm: '本当に消しますか？' }, :class=>"btn btn-default show-btn" %>
+  
     </div>
     <div class="col-md-3">
       <div class="submenu panel panel-default">
