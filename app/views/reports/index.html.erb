@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 report-wrap">
+
+<h1>実践報告</h1>
+
+<table class="table">　
+  <thead>
+    <tr>
+      <th>学年</th>
+      <th>教科</th>
+      <th>ねらい・目的</th>
+      <th>活動内容</th>
+      <th>感想</th>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.grade.name %></td>
+        <td><%= report.subject.name %></td>
+        <td><%= report.aim %></td>
+        <td><%= report.content %></td>
+        <td><%= report.comment %></td>
+        <td><%= link_to '詳細', report %></td>
+        <td><%= link_to '編集', edit_report_path(report) %></td>
+        <td><%= link_to '削除', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="btn btn-default"><%= link_to "新規投稿", new_report_path %></div>
+</div>
+
+
+      
+</div>
+</div>
+

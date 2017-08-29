@@ -9,7 +9,7 @@
         <% @activities.first(10).each do |activity| %>
         <div class = "article">
           <div class= "article_img">
-          <%= link_to image_tag(activity.picture.thumb), activity if activity.picture? %>
+           <%= link_to image_tag(activity.picture.thumb), activity if activity.picture? %>
           </div>
           <div class="article_text">
           <h3><%= link_to activity.title, activity,:class=>"link" %></h3>

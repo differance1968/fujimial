@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Grade.create(:name => '中１')
+Grade.create(:name => '中２')
+Grade.create(:name => '中３')
+Grade.create(:name => '高１')
+Grade.create(:name => '高２')
+Grade.create(:name => '高３')
+
+Subject.create(:name => '国語')
+Subject.create(:name => '数学')
+Subject.create(:name => '理科')
+Subject.create(:name => '社会')
+Subject.create(:name => '英語')
+Subject.create(:name => '音楽')
+Subject.create(:name => '美術')
+Subject.create(:name => '保険体育')
+Subject.create(:name => '技術家庭')
+Subject.create(:name => '情報')
+Subject.create(:name => 'HR・行事')
