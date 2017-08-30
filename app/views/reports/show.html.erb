@@ -1,19 +1,39 @@
 <p id="notice"><%= notice %></p>
+<div class="container main-wrap">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 report-wrap">
 
-<p>
-  <strong>Aim:</strong>
+<h2><%= @report.grade.name %>　<%= @report.subject.name %></h2>
+<br>
+
+<div class="report-content">
+  <h3>ねらい</h3>
   <%= @report.aim %>
-</p>
+</div>
+<br>
 
-<p>
-  <strong>Content:</strong>
+<div class="report-content">
+  <h3>実践内容</h3>
   <%= @report.content %>
-</p>
+</div>
+<br>
 
-<p>
-  <strong>Comment:</strong>
+<div class="report-content">
+  <h3>感想</h3>
   <%= @report.comment %>
-</p>
+</div>
+<br>
+<br>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+<div>
+  <%= link_to "資料をダウンロードする", @report.file.url if @report.file?  %>
+</div>
+
+<%= button_to '編集', edit_report_path(@report), :class=>"btn btn-default" %>
+<%= button_to '削除', @report, method: :delete, data: { confirm: '本当に消しますか?' }, :class=>"btn btn-default" %>
+
+</div>
+<div class="col-md-1"></div>
+</div>
+</div>

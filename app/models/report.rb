@@ -3,6 +3,7 @@ class Report < ApplicationRecord
     belongs_to :subject
     
     mount_uploader :picture, PictureUploader
+    mount_uploader :file, FileUploader
     validates :aim, presence: true
     validates :content, presence: true
     validates :comment, presence: true

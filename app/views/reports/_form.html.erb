@@ -10,32 +10,39 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-     <%= f.label :grade_id %>
+  <form>
+  <div class="form-group">
+     <%= f.label :学年 %>
      <%= f.collection_select :grade_id, Grade.all, :id, :name %>
   </div>
   
-  <div class="field">
-     <%= f.label :subject_id %>
+  <div class="form-group">
+     <%= f.label :教科 %>
      <%= f.collection_select :subject_id, Subject.all, :id, :name %>
   </div>
  
-  <div class="field">
-    <%= f.label :aim %>
-    <%= f.text_area :aim %>
+  <div class="form-group">
+    <%= f.label :ねらい %>
+    <%= f.text_area :aim, :class=>"form-control", :rows=>"2" %>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <div class="form-group">
+    <%= f.label :内容 %>
+    <%= f.text_area :content, :class=>"form-control", :rows=>"6" %>
   </div>
 
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
+  <div class="form-group">
+    <%= f.label :感想 %>
+    <%= f.text_area :comment, :class=>"form-control", :rows=>"6" %>
   </div>
-
+  
+      <%= f.file_field  :file, accept:'.doc,.docx,.pdf' %>
+  
+ <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "投稿", :class=>"btn btn-primary" %>
   </div>
+  
+  </form>
 <% end %>
+

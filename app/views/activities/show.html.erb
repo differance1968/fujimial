@@ -15,6 +15,9 @@
       <div class="show-content">
           <%== @activity.content %>
       </div>
+      <div>
+        <%= link_to "資料をダウンロードする", @activity.file.url if @activity.file? %>
+      </div>
       </div>
         <%= button_to '編集', edit_activity_path(@activity), method: :get, :class=>"btn btn-default show-btn" %> 
         <%= button_to '削除', @activity, method: :delete, data: { confirm: '本当に消しますか？' }, :class=>"btn btn-default show-btn" %>

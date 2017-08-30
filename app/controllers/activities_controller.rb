@@ -1,10 +1,9 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-  PER = 8
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.page(params[:page]).per(PER).order(created_at: :desc)
+    @activities = Activity.page(params[:page]).per(5).order(created_at: :desc)
     @activities_side = Activity.all.order(created_at: :desc)
   end
 
@@ -71,6 +70,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :content, :picture)
+      params.require(:activity).permit(:title, :content, :picture, :file)
     end
 end

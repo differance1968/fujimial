@@ -1,5 +1,6 @@
 class Activity < ApplicationRecord
     mount_uploader :picture, PictureUploader
+    mount_uploader :file, FileUploader
     validates :title, presence: true
     validates :content, presence: true
     validate :picture_size
