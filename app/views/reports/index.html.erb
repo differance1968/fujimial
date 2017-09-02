@@ -10,8 +10,9 @@
 <table class="table">　
   <thead>
     <tr>
-      <th>学年</th>
-      <th>教科</th>
+      <th><%= sortable "grade_id", "学年" %></th>
+      <th><%= sortable "subject_id", "教科" %></th>
+      <th><%= sortable "type_id", "活動種類" %></th>
       <th>ねらい・目的</th>
       <th>活動内容</th>
       <th>感想</th>
@@ -24,6 +25,7 @@
     <tr>
         <td><%= report.grade.name %></td>
         <td><%= report.subject.name %></td>
+        <td><%= report.type.name %></td>
         <td><%= report.aim.truncate(50) %></td>
         <td><%= report.content.truncate(50) %></td>
         <td><%= report.comment.truncate(50) %></td>
@@ -32,7 +34,9 @@
     <% end %>
   </tbody>
 </table>
-
+<br>
+<%= paginate @reports %>
+<br>
 <br>
 <div class="btn btn-default"><%= link_to "新規投稿", new_report_path %></div>
 </div>

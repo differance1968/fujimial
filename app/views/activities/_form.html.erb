@@ -12,23 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
+    <%= f.label :タイトル %>
     <%= f.text_field :title %>
   </div>
 
   <div class="field">
-    <%= f.label :content %>
+    <%= f.label :内容 %>
     <%= f.text_area :content, :id=>"summernote" %>
   </div>
 
   <div class="actions">
     <%= f.submit"投稿", class:"btn btn-primary" %>
-    <span class="picture">
-      <%= f.file_field :picture, accept:'image/jpeg,image/gif,image/png,.doc,.docx,.pdf' %>
-    </span>
-    <span class="file">
-      <%= f.file_field :file, accept:'.doc,.docx,.pdf' %>
-    </span>
+    <br>
+    <br>
+    <div class="picture">
+      画像<%= f.file_field :picture, accept:'image/jpeg,image/gif,image/png' %>
+    </div>
+    <br>
+    <div class="file">
+      ファイル<%= f.file_field :file, accept:'.doc,.docx,.pdf' %>
+    </div>
   </div>
 
    <% end %>

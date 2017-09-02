@@ -1,0 +1,42 @@
+<div class="container main-wrap">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-7 left-wrap">
+
+      <p id="notice"><%= notice %></p>
+     <div class="show-article">
+      <h2>
+        <%= @theory.title %>
+      </h2>
+      
+      <div class="show-image">
+        <%= image_tag @theory.picture.url if @theory.picture? %>
+      </div>
+      <div class="show-content">
+          <%== @theory.content %>
+      </div>
+      <div>
+        <%= link_to "資料をダウンロードする", @theory.file.url if @theory.file? %>
+      </div>
+      </div>
+        <%= button_to '編集', edit_theory_path(@theory), method: :get, :class=>"btn btn-default show-btn" %> 
+        <%= button_to '削除', @theory, method: :delete, data: { confirm: '本当に消しますか？' }, :class=>"btn btn-default show-btn" %>
+  
+    </div>
+    <div class="col-md-3">
+      <div class="submenu panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">新着記事</h3>
+        </div>
+        <% @theories.first(5).each do |theory| %>
+        <div class="panel-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li><%= link_to(theory.title, "/theories/#{theory.id}") %></li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+    </div><!--col-->
+    <div class="col-md-1"></div>
+  </div>
+</div>

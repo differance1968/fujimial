@@ -1,6 +1,7 @@
 class Report < ApplicationRecord
     belongs_to :grade
     belongs_to :subject
+    belongs_to :type
     
     mount_uploader :picture, PictureUploader
     mount_uploader :file, FileUploader

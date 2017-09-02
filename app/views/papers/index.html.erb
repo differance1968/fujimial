@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 report-wrap">
+
+<h1>資料一覧</h1>
+
+<table class="table">　
+  <thead>
+    <tr>
+      <th><%= sortable "grade_id", "学年" %></th>
+      <th><%= sortable "subject_id", "教科" %></th>
+      <th>資料内容</th>
+      <th>資料ダウンロード</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @papers.each do |paper| %>
+    <tr>
+        <td><%= paper.grade.name %></td>
+        <td><%= paper.subject.name %></td>
+        <td><%= paper.title.truncate(50) %></td>
+        <td><%= link_to 'ダウンロード', paper.file.url if paper.file? %></td>
+        <td><%= button_to '削除', paper, :method => :delete, data: { confirm: '本当に消しますか?' },:class=>"btn btn-default"  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= paginate @papers %>
+<br>
+<br>
+<div class="btn btn-default"><%= link_to "新規投稿", new_paper_path %></div>
+</div>
+</div>
+</div>

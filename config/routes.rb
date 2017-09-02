@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :theories
+  resources :papers
   resources :reports
   get 'home/index'
   get "/activities/:id/edit" => "activities#edit"

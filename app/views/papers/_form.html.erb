@@ -1,0 +1,40 @@
+<%= form_for(paper) do |f| %>
+  <% if paper.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(paper.errors.count, "error") %> prohibited this paper from being saved:</h2>
+
+      <ul>
+      <% paper.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<form>
+  <div class="form-group">
+    <%= f.label :学年 %>
+    <%= f.collection_select :grade_id, Grade.all, :id, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :教科 %>
+    <%= f.collection_select :subject_id, Subject.all, :id, :name %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :資料内容 %>
+    <%= f.text_area :title, :class=>"form-control", :rows=>"2"%>
+  </div>
+
+  <%= f.file_field  :file, accept:'.doc,.docx,.pdf' %>
+
+  <br>
+  
+  <div class="actions">
+    <%= f.submit "投稿", :class=>"btn btn-primary" %>
+  </div>
+  
+</form>
+<% end %>
+

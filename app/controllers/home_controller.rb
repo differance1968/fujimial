@@ -4,6 +4,4 @@ class HomeController < ApplicationController
     @activities = Activity.all.order(created_at: :desc)
   end
   
-  
-  
 end

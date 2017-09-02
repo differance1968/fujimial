@@ -15,8 +15,8 @@
             <p><%== activity.content.truncate(50) %></p>
           </div>
         </div>
-    <% end %>
-    <%= paginate @activities %>
+         <% end %>
+      <%= paginate @activities %>
     </div>
     
      <div class="col-md-3">
@@ -32,11 +32,9 @@
         </div>
         <% end %>
       </div>
+      
       <div class="btn btn-default"><%= link_to "新規投稿", new_activity_path %></div>
     </div><!--col-->
-    <div class="col-md-1"></div>
-  </div><!--row-->
-  </div><!--container-->
-  </div>
-  </div>
- </div>
+    </div>
+    </div>
+   

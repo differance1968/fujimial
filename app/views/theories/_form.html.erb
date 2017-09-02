@@ -1,0 +1,57 @@
+<%= form_for(theory) do |f| %>
+  <% if theory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(theory.errors.count, "error") %> prohibited this activity from being saved:</h2>
+
+      <ul>
+      <% theory.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content, :id=>"summernote" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit"投稿", class:"btn btn-primary" %>
+    <br>
+    <br>
+    <div class="picture">
+      画像<%= f.file_field :picture, accept:'image/jpeg,image/gif,image/png' %>
+    </div>
+    <br>
+    <div class="file">
+      ファイル<%= f.file_field :file, accept:'.doc,.docx,.pdf' %>
+    </div>
+  </div>
+
+   <% end %>
+  
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+    $('#summernote').summernote({
+  height: 300,                 // set editor height
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+  focus: true                  // set focus to editable area after initializing summernote
+});
+    
+    $('#theory_picture').bind('change', function() {
+  var size_in_megabytes = this.files[0].size/1024/1024;
+  if (size_in_megabytes > 5) {
+    alert('最大ファイルサイズは5MBです。');
+  }
+});
+
+  </script>

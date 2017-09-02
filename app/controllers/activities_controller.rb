@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.page(params[:page]).per(5).order(created_at: :desc)
+    @activities = Activity.page(params[:page]).per(8).order(created_at: :desc)
     @activities_side = Activity.all.order(created_at: :desc)
   end
 
@@ -29,7 +29,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to activities_url, notice: '投稿されました.' }
+        format.html { redirect_to activities_url, notice: '投稿されました' }
         format.json { render :show, status: :created, location: @activity }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: '編集されました。' }
+        format.html { redirect_to @activity, notice: '編集されました' }
         format.json { render :show, status: :ok, location: @activity }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: '消去されました。' }
+      format.html { redirect_to activities_url, notice: '削除されました' }
       format.json { head :no_content }
     end
   end
