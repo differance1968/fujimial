@@ -10,12 +10,13 @@
 <table class="table">　
   <thead>
     <tr>
-      <th><%= sortable "grade_id", "学年" %></th>
-      <th><%= sortable "subject_id", "教科" %></th>
-      <th><%= sortable "type_id", "活動種類" %></th>
-      <th>ねらい・目的</th>
-      <th>活動内容</th>
-      <th>感想</th>
+      <th style="width:60px;"><%= sortable "grade_id", "学年" %></th>
+      <th style="width:60px;"><%= sortable "subject_id", "教科" %></th>
+      <th style="width:80px;"><%= sortable "type_id", "活動種類" %></th>
+      <th style="width:140px;">ねらい・目的</th>
+      <th style="width:200px;">活動内容</th>
+      <th style="width:200px;">感想</th>
+      <th style="width:120px;">資料ダウンロード</th>
       <th colspan="5"></th>
     </tr>
   </thead>
@@ -29,6 +30,7 @@
         <td><%= report.aim.truncate(50) %></td>
         <td><%= report.content.truncate(50) %></td>
         <td><%= report.comment.truncate(50) %></td>
+        <td><%= link_to "ダウンロード", report.file.url if report.file?  %></td>
         <td><%= link_to '詳細', report, :class=>"btn btn-default" %></td>
     </tr>
     <% end %>
