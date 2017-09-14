@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :theories
   resources :papers
   resources :reports
-  get 'home/index'
+  get '/' => "home#index"
   get "/activities/:id/edit" => "activities#edit"
   resources :activities
   get "/posts/index" => "posts#index"
