@@ -8,11 +8,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-  if Rails.env.production?
-  include Cloudinary::CarrierWave
-  else
-  storage :file
-  end
+  #if Rails.env.production?
+  #include Cloudinary::CarrierWave
+  #else
+  #storage :file
+  #end
   
   #process :convert => 'png'
   #process :tags => ['picture']
