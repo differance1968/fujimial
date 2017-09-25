@@ -27,7 +27,7 @@
 <br>
 
 <div>
-  <%= link_to "資料をダウンロードする", @report.file.url if @report.file?  %>
+  <%= link_to "資料をダウンロードする", @report.file.url if @report.file?, :use_filename => true  %>
 </div>
 <br>
 <br>
