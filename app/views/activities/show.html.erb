@@ -10,7 +10,7 @@
       </h2>
       
       <div class="show-image">
-        <%= image_tag @activity.picture.url if @activity.picture? %>
+        <%= cl_image_tag @activity.picture.url if @activity.picture? %>
       </div>
       <div class="show-content">
           <%== @activity.content %>
