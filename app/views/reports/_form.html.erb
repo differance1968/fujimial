@@ -41,7 +41,7 @@
     <%= f.text_area :comment, :class=>"form-control", :rows=>"6" %>
   </div>
   
-      <%= f.file_field  :file, accept:'.doc,.docx,.pdf' %>
+      <%= f.file_field  :file, :use_filename => true, accept:'.doc,.docx,.pdf' %>
   
  <br>
   <div class="actions">
