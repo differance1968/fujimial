@@ -23,7 +23,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
   
   def public_id
-     picture.id
+     model.id
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
