@@ -30,7 +30,7 @@
         <td><%= report.aim.truncate(50) %></td>
         <td><%= report.content.truncate(50) %></td>
         <td><%= report.comment.truncate(50) %></td>
-        <td><%= link_to "ダウンロード", report.file.url if report.file?, :use_filename => true  %></td>
+        <td><%= link_to "ダウンロード", report.file.url if report.file?  %></td>
         <td><%= link_to '詳細', report, :class=>"btn btn-default" %></td>
     </tr>
     <% end %>

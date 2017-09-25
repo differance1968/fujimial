@@ -4,7 +4,7 @@ class FileUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   if Rails.env.production?
-  include Cloudinary::CarrierWave
+  include Cloudinary::CarrierWave(:use_filename => true)
   else
   storage :file
   end
