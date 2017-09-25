@@ -10,7 +10,7 @@
       </h2>
       
       <div class="show-image">
-        <%= image_tag @theory.picture.url if @theory.picture? %>
+        <%= cl_image_tag @theory.picture.url if @theory.picture? %>
       </div>
       <div class="show-content">
           <%== @theory.content %>
