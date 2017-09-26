@@ -23,7 +23,7 @@
         <td><%= paper.grade.name %></td>
         <td><%= paper.subject.name %></td>
         <td><%= paper.title.truncate(50) %></td>
-        <td><%= link_to 'ダウンロード', paper.try(:file) %></td>
+        <td><%= link_to 'ダウンロード', paper.file.url if paper.file?  %></td>
         <td><%= button_to '削除', paper, :method => :delete, data: { confirm: '本当に消しますか?' },:class=>"btn btn-default"  %></td>
     </tr>
     <% end %>
