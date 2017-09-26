@@ -18,7 +18,7 @@ class FileUploader < CarrierWave::Uploader::Base
 
   
   def public_id
-     model.id
+     Cloudinary::PreloadedFile.split_format(original_filename).first + "_" + Cloudinary::Utils.random_public_id[0,6]
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
